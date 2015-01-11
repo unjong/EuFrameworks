@@ -1,0 +1,29 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:selectors="clr-namespace:EU.Wpf.AppClient.Selectors"
+                    >
+    
+    <selectors:ModelMenuTemplateSelector x:Key="ModelMenuTemplateSelector" />
+    <selectors:MenuModelStyleSelector x:Key="MenuModelStyleSelector" />
+
+    <DataTemplate x:Key="ModelSeparatorTemplate">
+        <Separator Margin="30,0,0,0" />
+    </DataTemplate>
+    
+    <Style TargetType="{x:Type Menu}">
+        <Setter Property="ItemContainerStyleSelector" Value="{StaticResource MenuModelStyleSelector}" />
+    </Style>
+
+    <Style x:Key="ModelMenuStyle" TargetType="MenuItem">
+        <Setter Property="ItemContainerTemplateSelector" Value="{StaticResource ModelMenuTemplateSelector}" />
+        <Setter Property="UsesItemContainerTemplate" Value="True" />
+        <Setter Property="Header" Value="{Binding Display}" />
+        <Setter Property="Command" Value="{Binding Command}" />
+        <Setter Property="ItemsSource" Value="{Binding Items}" />
+        <Setter Property="InputGestureText" Value="{Binding InputGestureText}" />
+    </Style>
+
+    <Style x:Key="StandardSeparator" TargetType="Separator">
+    </Style>
+    
+</ResourceDictionary>

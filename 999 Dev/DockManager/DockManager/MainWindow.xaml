@@ -1,0 +1,27 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dm="clr-namespace:DockManager.Controls.Dock" xmlns:Tabbed="clr-namespace:DockManager.Controls.Tabbed" x:Class="DockManager.MainWindow"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+    </Window.Resources>
+    <Grid Background="Black">
+        <!--
+        <dm:DockManager>
+            <dm:DockManager.DocumentPanes>
+                <dm:DocumentPane Header="ABCD">
+                    <Grid Background="Red" Height="50" />
+                </dm:DocumentPane>
+                <dm:DocumentPane Header="ABCD">
+                    <Grid Background="Blue" Height="50" />
+                </dm:DocumentPane>
+                <dm:DocumentPane Header="ABCD">
+                    <Grid Background="Yellow" Height="50" />
+                </dm:DocumentPane>
+            </dm:DockManager.DocumentPanes>
+        </dm:DockManager>
+        -->
+        <Tabbed:TabbedControl Margin="5" x:Name="cTabbedControl">            
+        </Tabbed:TabbedControl>
+    </Grid>
+</Window>
