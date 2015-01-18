@@ -1,0 +1,22 @@
+﻿<!--
+    Author	JO Hyeong-Ryeol
+    Since	2013.03.26
+    Version	$Id$
+
+    This file is a part of the Nicenis project.
+    https://nicenis.codeplex.com
+    
+    Copyright (C) 2013 JO Hyeong-Ryeol. All rights reserved.   
+-->
+<Window x:Class="NicenisTestGui.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Main Window" Height="350" Width="525">
+    <StackPanel>
+        <Button Padding="4" Content="DragMover Sample" Click="CreateDragMoverTestWindowButton_Click" />
+        <Button Padding="4" Content="DragResizer Sample" Click="CreateDragResizerTestWindowButton_Click" />
+        <Button Padding="4" Content="DragSource &amp; DropTarget Sample" Click="CreateDragSourceNDropTargetTestWindow_Click" />
+        <Button Padding="4" Content="Hover Sample" Click="CreateHoverTestWindowButton_Click" />
+        <Button Padding="4" Content="CustomWindow Sample" Click="CreateCustomWindowTestWindowButton_Click" />
+    </StackPanel>
+</Window>

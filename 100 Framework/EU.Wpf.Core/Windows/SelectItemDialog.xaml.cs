@@ -39,7 +39,7 @@ namespace EU.Wpf.Windows
             public static readonly DependencyProperty ItemsProperty =
                 DependencyProperty.Register("Items", typeof(IEnumerable<object>), typeof(SelectItemDialog), new PropertyMetadata());
 
-            public object SelectedItem { get { return _SelectedItem; } set { _SelectedItem = value; OnPropertyChanged(); } }
+            public object SelectedItem { get { return _SelectedItem; } set { _SelectedItem = value; RaisePropertyChanged(); } }
             private object _SelectedItem;
 
             public override void CommandOnExcute(object key, object parameter)

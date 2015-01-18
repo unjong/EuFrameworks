@@ -4,17 +4,18 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2E4546E5-0118-4210-9114-3896BAAFCB62}</ProjectGuid>
-    <OutputType>library</OutputType>
+    <ProjectGuid>{C6A6977C-7AB3-4B6D-A9EA-829AA4CB8D6E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EU.Wpf</RootNamespace>
-    <AssemblyName>EU.Wpf.Core</AssemblyName>
+    <RootNamespace>EU.App.DMC</RootNamespace>
+    <AssemblyName>EU.App.DMC</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,6 +25,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -47,31 +49,43 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Themes\Generic.xaml">
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Services\ViewLocator.cs" />
+    <Compile Include="Services\ViewModelLocator.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\WorkspaceViewModel.cs" />
+    <Compile Include="Views\WorkspaceView.xaml.cs">
+      <DependentUpon>WorkspaceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Themes\GenericViewControl.xaml">
-      <SubType>Designer</SubType>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\WorkspaceView.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="Windows\SelectItemDialog.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Views\MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="dotnet Extension\ObservableDictionary.cs" />
-    <Compile Include="Mvvm\AsyncCommand.cs" />
-    <Compile Include="Mvvm\EuCommand.cs" />
-    <Compile Include="Mvvm\IView.cs" />
-    <Compile Include="Mvvm\Model\MenuModel.cs" />
-    <Compile Include="Mvvm\NotifyObject.cs" />
-    <Compile Include="Mvvm\NotifyTaskCompletion.cs" />
-    <Compile Include="Mvvm\ViewControl.cs" />
-    <Compile Include="Mvvm\ViewLocatorBase.cs" />
-    <Compile Include="Mvvm\ViewModelBase.cs" />
-    <Compile Include="Mvvm\ViewModelLocatorBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -85,11 +99,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="UIHelper.cs" />
-    <Compile Include="Windows\SelectItemDialog.xaml.cs">
-      <DependentUpon>SelectItemDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\WindowService.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -101,9 +110,32 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EU.Core\EU.Core.csproj">
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\100 Framework\EU.Core\EU.Core.csproj">
       <Project>{f794abc4-5f16-4b73-84f5-444337b246df}</Project>
       <Name>EU.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\100 Framework\EU.Wpf.AppClient\EU.Wpf.AppClient.csproj">
+      <Project>{1d6f4dd3-c6a0-42bc-a5b6-4687c68d2b2d}</Project>
+      <Name>EU.Wpf.AppClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\100 Framework\EU.Wpf.Controls\EU.Wpf.Controls.csproj">
+      <Project>{B7F8153C-449B-41BA-A65C-236858E399EB}</Project>
+      <Name>EU.Wpf.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\100 Framework\EU.Wpf.Core\EU.Wpf.Core.csproj">
+      <Project>{2e4546e5-0118-4210-9114-3896baafcb62}</Project>
+      <Name>EU.Wpf.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\100 Framework\EU.Wpf.Theme\EU.Wpf.Theme.csproj">
+      <Project>{4cd66a46-42a6-47b1-8c88-85c84a64ca8a}</Project>
+      <Name>EU.Wpf.Theme</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EU.App.DMC.Core\EU.App.DMC.Core.csproj">
+      <Project>{e8960cd2-688e-4601-9277-ba4baa5ceed0}</Project>
+      <Name>EU.App.DMC.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

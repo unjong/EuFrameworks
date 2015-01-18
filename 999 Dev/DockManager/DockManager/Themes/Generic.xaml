@@ -1,0 +1,15 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    >
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/DockManager;component/Themes/GenericTabbedControl.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/DockManager;component/Themes/GenericTabbedItem.xaml" />
+        
+        <ResourceDictionary Source="pack://application:,,,/DockManager;component/Themes/GenericDockManager.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/DockManager;component/Themes/GenericDocumentPaneHost.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/DockManager;component/Themes/GenericSplitPaneHost.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    
+</ResourceDictionary>
